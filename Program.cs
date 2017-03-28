@@ -31,14 +31,7 @@ namespace BitmapMaze
                     Console.WriteLine($"DRAWED {i} {j}");
                 }
             }
-            
-            // g.FillEllipse(new SolidBrush(Color.Red), 0, 0, bmp.Width, bmp.Width);
-            //g.DrawLine(p, 0, 0, bmp.Width, bmp.Width);
-            //g.DrawLine(p, bmp.Width, 0, 0, bmp.Width);
-            //  g.DrawLine()
-            // g.Dispose();
-            //Console.WriteLine(cells.Length);
-          
+           
             bmp.Save($"bmp{DateTimeOffset.Now.ToUnixTimeSeconds()}.bmp");
             Console.ReadLine();
         }
