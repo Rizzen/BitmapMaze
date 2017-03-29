@@ -33,6 +33,7 @@ namespace BitmapMaze
             }
 
             bmp.Save($"bmp{DateTimeOffset.Now.ToUnixTimeSeconds()}.bmp");
+
             Console.ReadLine();
         }
     }
