@@ -41,6 +41,8 @@ namespace BitmapMaze
                 }
             }
 
+
+
            bmp.Save($"bmp{DateTimeOffset.Now.ToUnixTimeSeconds()}.bmp");
            
             Console.WriteLine(Image.GetPixelFormatSize(bmp.PixelFormat));
