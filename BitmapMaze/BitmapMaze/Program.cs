@@ -22,11 +22,12 @@ namespace BitmapMaze
             var g = Graphics.FromImage(bmp);
             var b = new SolidBrush(Color.White);
             g.FillRectangle(b, 0, 0, bmp.Width, bmp.Height);
+            g?.Dispose();
+            b?.Dispose();
             
             var maze = new Maze(MAZE_X, MAZE_Y, CELL_SIZE);
             maze.DrawMaze(bmp);
-         //   maze.GenerateMaze(bmp);
-        
+            
             bmp.Save($"bmp{DateTimeOffset.Now.ToUnixTimeSeconds()}.bmp");
            
             Console.WriteLine(Image.GetPixelFormatSize(bmp.PixelFormat));

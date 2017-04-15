@@ -14,8 +14,6 @@ namespace BitmapMaze
         private int Y { get; }
         private int Size { get; }
 
-        
-        
         public Cell(int _x, int _y, int _size)
         {
             X = _x;
@@ -41,15 +39,6 @@ namespace BitmapMaze
             if (AdjacencyList[2] == 0) g.DrawLine(p, new Point(X * Size + Size, Y * Size + Size), new Point(X * Size, Y * Size + Size));
             if (AdjacencyList[3] == 0) g.DrawLine(p, new Point(X * Size, Y * Size + Size), new Point(X * Size, Y * Size));
 
-          /*  g.DrawLines(p,
-                new Point[]
-                {
-                    new Point (X*Size,Y*Size),
-                    new Point (X*Size+Size,Y*Size),
-                    new Point (X*Size+Size,Y*Size+Size),
-                    new Point (X*Size,Y*Size+Size),
-                    new Point (X*Size,Y*Size)
-                });*/
             g?.Dispose();
             p?.Dispose();
 
