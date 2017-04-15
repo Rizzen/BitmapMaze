@@ -36,8 +36,7 @@ namespace BitmapMaze
         
         public void GenerateMaze(Bitmap bmp)
         {
-            cells[5, 5].RemoveWall(Wall.Down, bmp);
-            cells[5, 5].RemoveWall(Wall.Up, bmp);
+
         }
     }
 }

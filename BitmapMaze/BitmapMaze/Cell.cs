@@ -55,34 +55,6 @@ namespace BitmapMaze
 
         Console.WriteLine($"Drawed Cell {X},{Y}.");
         }
-        /// <summary>
-        /// Это не нужно
-        /// </summary>
-        /// <param name="w"></param>
-        /// <param name="bmp"></param>
-        public void RemoveWall(Wall w, Bitmap bmp)
-        {
-            var g = Graphics.FromImage(bmp);
-            var p = new Pen(Color.White);
-
-            switch (w)
-            {
-                case Wall.Up:
-                    g.DrawLine(p, new Point(X * Size, Y * Size), new Point(X * Size + Size, Y * Size));
-                    break;
-                case Wall.Down:
-                    g.DrawLine(p, new Point(X * Size + Size, Y * Size + Size), new Point(X * Size, Y * Size + Size));
-                    break;
-                case Wall.Right:
-                    g.DrawLine(p, new Point(X * Size + Size, Y * Size), new Point(X * Size + Size, Y * Size + Size));
-                    break;
-                case Wall.Left:
-                    g.DrawLine(p, new Point(X * Size, Y * Size + Size), new Point(X * Size, Y * Size));
-                    break;
-            }
-        }
-
-        //public void Draw (DrawEventHandlerArgs a) => OnDraw(a);
-        //public event CellDraw OnDraw;
+        
     }
 }
