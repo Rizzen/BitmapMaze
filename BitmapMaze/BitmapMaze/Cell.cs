@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BitmapMaze.Handlers;
-using BitmapMaze.Args;
 using System.Drawing;
 using System.Drawing.Imaging;
 
