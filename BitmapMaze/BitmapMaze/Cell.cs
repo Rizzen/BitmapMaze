@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using BitmapMaze.Handlers;
 using BitmapMaze.Args;
+using System.Drawing;
+using System.Drawing.Imaging;
 
 namespace BitmapMaze
 {
@@ -16,6 +18,10 @@ namespace BitmapMaze
 
         public List<Cell> AdjacencyList = new List<Cell>();
 
+        public void Draw (Bitmap bmp)
+        {
+
+        }
 
         //public void Draw (DrawEventHandlerArgs a) => OnDraw(a);
         //public event CellDraw OnDraw;
