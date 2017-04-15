@@ -19,12 +19,14 @@ namespace BitmapMaze
             const int MAZE_Y = 10;
 
             var bmp = new Bitmap(MAZE_X * CELL_SIZE + 1, MAZE_Y * CELL_SIZE + 1);
+            var g = Graphics.FromImage(bmp);
+            var b = new SolidBrush(Color.White);
+            g.FillRectangle(b, 0, 0, bmp.Width, bmp.Height);
+            
             var maze = new Maze(MAZE_X, MAZE_Y, CELL_SIZE);
             maze.DrawMaze(bmp);
-            
-            
-
-
+         //   maze.GenerateMaze(bmp);
+        
             bmp.Save($"bmp{DateTimeOffset.Now.ToUnixTimeSeconds()}.bmp");
            
             Console.WriteLine(Image.GetPixelFormatSize(bmp.PixelFormat));

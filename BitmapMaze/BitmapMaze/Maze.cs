@@ -33,10 +33,11 @@ namespace BitmapMaze
             }
             Console.WriteLine("Maze Succesfully Drawed!!");
         }
-
-        public void GenerateMaze()
+        
+        public void GenerateMaze(Bitmap bmp)
         {
-
+            cells[5, 5].RemoveWall(Wall.Down, bmp);
+            cells[5, 5].RemoveWall(Wall.Up, bmp);
         }
     }
 }
