@@ -52,9 +52,9 @@
     <Compile Include="CellDrawer.cs" />
     <Compile Include="Handlers\DrawHandler.cs" />
     <Compile Include="Maze.cs" />
-    <Compile Include="MazeGenerator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Wall.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

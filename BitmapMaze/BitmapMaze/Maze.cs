@@ -31,6 +31,12 @@ namespace BitmapMaze
             {
                 c.Draw(bmp);
             }
+            Console.WriteLine("Maze Succesfully Drawed!!");
+        }
+
+        public void GenerateMaze()
+        {
+
         }
     }
 }

@@ -42,6 +42,8 @@ namespace BitmapMaze
             Console.WriteLine($"Drawed Cell {X},{Y}.");
         }
 
+       
+
         //public void Draw (DrawEventHandlerArgs a) => OnDraw(a);
         //public event CellDraw OnDraw;
     }

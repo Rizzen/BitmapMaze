@@ -22,7 +22,7 @@ namespace BitmapMaze
             var maze = new Maze(MAZE_X, MAZE_Y, CELL_SIZE);
             maze.DrawMaze(bmp);
             
-
+            
 
 
             bmp.Save($"bmp{DateTimeOffset.Now.ToUnixTimeSeconds()}.bmp");
