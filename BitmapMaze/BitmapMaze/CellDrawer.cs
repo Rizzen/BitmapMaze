@@ -8,6 +8,9 @@ using BitmapMaze.Args;
 using System.Drawing;
 using System.Drawing.Imaging;
 
+/// <summary>
+/// for Events-driven drawing
+/// </summary>
 namespace BitmapMaze
 {
     class CellDrawer
@@ -16,7 +19,7 @@ namespace BitmapMaze
         {
             var g = Graphics.FromImage(a.bmp);
             var p = new Pen(Color.Black);
-            g.dra
+            
         }
     }
 }

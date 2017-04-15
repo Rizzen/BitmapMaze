@@ -5,7 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using System.Drawing.Imaging;
-
+/// <summary>
+/// for Events-driven drawing
+/// </summary>
 namespace BitmapMaze.Args
 {
     public class DrawEventHandlerArgs: EventArgs

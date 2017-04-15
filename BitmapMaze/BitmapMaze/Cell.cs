@@ -13,8 +13,11 @@ namespace BitmapMaze
         private int X { get; }
         private int Y { get; }
         private int Size { get; }
-        
-        public void Draw (DrawEventHandlerArgs a) => OnDraw(a);
-        public event CellDraw OnDraw;
+
+        public List<Cell> AdjacencyList = new List<Cell>();
+
+
+        //public void Draw (DrawEventHandlerArgs a) => OnDraw(a);
+        //public event CellDraw OnDraw;
     }
 }
