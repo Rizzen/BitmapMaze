@@ -18,6 +18,9 @@ namespace BitmapMaze
             const int MAZE_X = 1000;
             const int MAZE_Y = 1000;
 
+            Cell cell = new Cell();
+            
+
             //var cells = new int[MAZE_X, MAZE_Y];
             var bmp = new Bitmap(MAZE_X * CELL_SIZE + 1, MAZE_Y * CELL_SIZE + 1);
             var g = Graphics.FromImage(bmp);
@@ -37,12 +40,10 @@ namespace BitmapMaze
                 for (int j = 0; j < bmp.Size.Width; j++)
                 {
                     bmp.SetPixel(i,j, Color.Red);
-                    Console.WriteLine($" {i} {j} {bmp.GetPixel(i, j)} ");
+                    Console.WriteLine($"{i} {j} {bmp.GetPixel(i, j)}");
                 }
             }
-
-
-
+            
            bmp.Save($"bmp{DateTimeOffset.Now.ToUnixTimeSeconds()}.bmp");
            
             Console.WriteLine(Image.GetPixelFormatSize(bmp.PixelFormat));

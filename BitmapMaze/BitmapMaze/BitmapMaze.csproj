@@ -47,7 +47,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Args\DrawEventHandlerArgs.cs" />
     <Compile Include="Cell.cs" />
+    <Compile Include="CellDrawer.cs" />
+    <Compile Include="Handlers\DrawHandler.cs" />
     <Compile Include="Maze.cs" />
     <Compile Include="MazeGenerator.cs" />
     <Compile Include="Program.cs" />
