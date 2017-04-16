@@ -29,7 +29,7 @@ namespace BitmapMaze
         /// 2th element - down;
         /// 3th element - left;
         /// </summary>
-        public int[] AdjacencyList = new int[] { 0, 0, 0, 0 }; 
+        public int[] AdjacencyList = new int[] { 0, 0, 0, 1 }; 
 
         public void Draw (Bitmap bmp)
         {
@@ -45,6 +45,28 @@ namespace BitmapMaze
             p?.Dispose();
 
         Console.WriteLine($"Drawed Cell {X},{Y}.");
+        }
+
+
+        public void RemoveWallToCell (Cell c)
+        {
+            
+            int dx = c.X - this.X;
+            int dy = c.Y - this.Y;
+
+            switch (dy)
+            {
+                case 0:
+                    if (dx == 1) { AdjacencyList[1] = 1; c.AdjacencyList[3] = 1; }
+                    else if (dx == -1) { AdjacencyList[3] = 1; c.AdjacencyList[1] = 1; }
+                    break;
+                case 1:
+                    if (dx == 0) { AdjacencyList[2] = 1; c.AdjacencyList[0] = 1; }
+                    break;
+                case -1:
+                    if (dx == 0) { AdjacencyList[0] = 1; c.AdjacencyList[2] = 1; }
+                    break;
+            }
         }
         
     }

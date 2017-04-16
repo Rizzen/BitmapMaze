@@ -14,7 +14,7 @@ namespace BitmapMaze
 
         static void Main(string[] args)
         {
-            const int CELL_SIZE = 15;
+            const int CELL_SIZE = 30;
             const int MAZE_X = 10;
             const int MAZE_Y = 10;
 
@@ -26,8 +26,9 @@ namespace BitmapMaze
             b?.Dispose();
             
             var maze = new Maze(MAZE_X, MAZE_Y, CELL_SIZE);
-            maze.DrawMaze(bmp);
+            
             maze.GenerateMaze(bmp);
+            maze.DrawMaze(bmp);
 
             bmp.Save($"bmp{DateTimeOffset.Now.ToUnixTimeSeconds()}.bmp");
            

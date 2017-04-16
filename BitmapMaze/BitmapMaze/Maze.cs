@@ -25,7 +25,7 @@ namespace BitmapMaze
             {
                 for (int j = 0; j < XSize; j++)
                 {
-                    cells[i, j] = new Cell(j, i, CellSize);
+                    cells[j, i] = new Cell(j, i, CellSize);
                 }
             }
         }
@@ -47,7 +47,7 @@ namespace BitmapMaze
             {
                 for (int j = -1; j <= 1; j++)
                 {
-                    if (c.X + i >= 0 && c.X + i < XSize && c.Y + j >= 0 && c.Y + j < XSize && Math.Abs(i)!= Math.Abs(j))
+                    if (c.X + i >= 0 && c.X + i < XSize && c.Y + j >= 0 && c.Y + j < YSize && Math.Abs(i)!= Math.Abs(j))
                     {
                         if (!cells[c.X + i, c.Y + j].IsVisited)
                         {
@@ -62,15 +62,20 @@ namespace BitmapMaze
         
         public void GenerateMaze(Bitmap bmp)
         {
-            var g = Graphics.FromImage(bmp);
-            var b = new SolidBrush(Color.Green);
+            cells[0, 0].RemoveWallToCell(cells[0, 1]);
+            cells[5, 5].RemoveWallToCell(cells[4, 5]);
+            cells[5, 5].RemoveWallToCell(cells[5, 6]);
+            // var startCell = cells[0, 0];
+            // var g = Graphics.FromImage(bmp);
+            // var b = new SolidBrush(Color.Green);
 
-            var list = GetNeighbours(cells[0, 0]);
+            /* var list = GetNeighbours(cells[0, 0]);
 
-            foreach (Cell c in list)
-            {
-                g.FillRectangle(b, c.X * c.Size, c.Y * c.Size, c.Size, c.Size);
-            }
+             foreach (Cell c in list)
+             {
+                 g.FillRectangle(b, c.X * c.Size, c.Y * c.Size, c.Size, c.Size);
+             }*/
+
         }
     }
 }
