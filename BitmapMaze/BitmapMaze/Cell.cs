@@ -10,9 +10,11 @@ namespace BitmapMaze
 {
     class Cell
     {
-        private int X { get; }
-        private int Y { get; }
-        private int Size { get; }
+        public int X { get; }
+        public int Y { get; }
+        public int Size { get; }
+
+        public bool IsVisited { get; set; } = false;
 
         public Cell(int _x, int _y, int _size)
         {

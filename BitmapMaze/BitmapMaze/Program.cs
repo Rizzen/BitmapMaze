@@ -27,7 +27,8 @@ namespace BitmapMaze
             
             var maze = new Maze(MAZE_X, MAZE_Y, CELL_SIZE);
             maze.DrawMaze(bmp);
-            
+            maze.GenerateMaze(bmp);
+
             bmp.Save($"bmp{DateTimeOffset.Now.ToUnixTimeSeconds()}.bmp");
            
             Console.WriteLine(Image.GetPixelFormatSize(bmp.PixelFormat));
