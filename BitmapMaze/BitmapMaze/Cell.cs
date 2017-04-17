@@ -14,7 +14,7 @@ namespace BitmapMaze
         public int Y { get; }
         public int Size { get; }
 
-        public bool IsVisited { get; set; } = false;
+        public bool IsVisited { get; private set; } = false;
 
         public Cell(int _x, int _y, int _size)
         {
@@ -35,7 +35,7 @@ namespace BitmapMaze
         {
             var g = Graphics.FromImage(bmp);
             var p = new Pen(Color.Black);
-
+           
             if (AdjacencyList[0] == 0) g.DrawLine(p, new Point(X * Size, Y * Size), new Point(X * Size + Size, Y * Size));
             if (AdjacencyList[1] == 0) g.DrawLine(p, new Point(X * Size + Size, Y * Size), new Point(X * Size + Size, Y * Size + Size));
             if (AdjacencyList[2] == 0) g.DrawLine(p, new Point(X * Size + Size, Y * Size + Size), new Point(X * Size, Y * Size + Size));
@@ -43,8 +43,6 @@ namespace BitmapMaze
 
             g?.Dispose();
             p?.Dispose();
-
-       // Console.WriteLine($"Drawed Cell {X},{Y}.");
         }
 
 
