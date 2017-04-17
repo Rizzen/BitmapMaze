@@ -118,20 +118,6 @@ namespace BitmapMaze
                     Console.WriteLine($"Random Choosen cell: {currCell.X} {currCell.Y}");
                 }
             }
-
-
-            
-            
-            // var startCell = cells[0, 0];
-            // var g = Graphics.FromImage(bmp);
-            // var b = new SolidBrush(Color.Green);
-
-            /* var list = GetNeighbours(cells[0, 0]);
-
-             foreach (Cell c in list)
-             {
-                 g.FillRectangle(b, c.X * c.Size, c.Y * c.Size, c.Size, c.Size);
-             }*/
         }
     }
 }
