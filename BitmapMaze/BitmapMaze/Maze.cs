@@ -67,6 +67,7 @@ namespace BitmapMaze
             var unVisited = new List<Cell>();
             var startCell = cells[0, 0];
             var currCell = startCell;
+            var r = new Random();
             currCell.SetVisited();
             Cell neigbourCell;
 
@@ -88,17 +89,19 @@ namespace BitmapMaze
 
                 if (neigbourList.Count>0)
                 {
-                    var r = new Random();
-                    neigbourCell = neigbourList[r.Next(0, neigbourList.Count)];
+                    
+                    int rand = r.Next(neigbourList.Count);
+                    neigbourCell = neigbourList[rand];
+                    Console.WriteLine($"Neigbour count: {neigbourList.Count} random: {rand}");
 
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine($"{currCell.X} {currCell.Y} Neigbour list count is {neigbourList.Count} Choosen Cell: {neigbourCell.X} {neigbourCell.Y}");
-                    Console.ForegroundColor = ConsoleColor.Gray;
+                   // Console.ForegroundColor = ConsoleColor.Green;
+                   // Console.WriteLine($"{currCell.X} {currCell.Y} Neigbour list count is {neigbourList.Count} Choosen Cell: {neigbourCell.X} {neigbourCell.Y}");
+                  //  Console.ForegroundColor = ConsoleColor.Gray;
 
                     unVisited.Remove(currCell);
                     currCell.RemoveWallToCell(neigbourCell);
 
-                    Console.WriteLine($"Pushed in Stack {currCell.X} {currCell.Y}");
+                   // Console.WriteLine($"Pushed in Stack {currCell.X} {currCell.Y}");
                     stack.Push(currCell);
                     
                     currCell = neigbourCell;
@@ -107,12 +110,12 @@ namespace BitmapMaze
                 else if (stack.Count > 0)
                 {
                     currCell = stack.Pop();
-                    Console.WriteLine($"Poped from Stack {currCell.X} {currCell.Y}");
+                   // Console.WriteLine($"Poped from Stack {currCell.X} {currCell.Y}");
                 }
                 else
                 {
-                    var r = new Random();
-                    currCell = unVisited[r.Next(0, unVisited.Count)];
+                    //var r = new Random();
+                    currCell = unVisited[r.Next(unVisited.Count)];
                     currCell.IsVisited = true;
                     unVisited.Remove(currCell);
                     Console.WriteLine($"Random Choosen cell: {currCell.X} {currCell.Y}");
