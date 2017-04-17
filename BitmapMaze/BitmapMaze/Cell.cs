@@ -44,7 +44,7 @@ namespace BitmapMaze
             g?.Dispose();
             p?.Dispose();
 
-        Console.WriteLine($"Drawed Cell {X},{Y}.");
+       // Console.WriteLine($"Drawed Cell {X},{Y}.");
         }
 
 
@@ -67,6 +67,13 @@ namespace BitmapMaze
                     if (dx == 0 && AdjacencyList[0] == 0) { AdjacencyList[0] = 1; c.RemoveWallToCell(this); }
                     break;
             }
+
+           // Console.WriteLine($"Removed Wall From {X},{Y} to Cell {c.X} {c.Y}.");
+        }
+
+        public void SetVisited()
+        {
+            IsVisited = true;
         }
         
     }

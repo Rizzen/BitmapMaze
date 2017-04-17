@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+
 using System.Drawing.Imaging;
 
 namespace BitmapMaze
@@ -21,7 +22,7 @@ namespace BitmapMaze
 
             cells = new Cell[XSize, YSize];
 
-            for (int i = 0; i<YSize; i++)
+            for (int i = 0; i < YSize; i++)
             {
                 for (int j = 0; j < XSize; j++)
                 {
@@ -51,7 +52,7 @@ namespace BitmapMaze
                     {
                         if (!cells[c.X + i, c.Y + j].IsVisited)
                         {
-                            Console.WriteLine($"Added {c.X + i} {c.X + j} as Neighbour to {c.X} {c.Y}");
+                            Console.WriteLine($"Added {c.X + i} {c.Y + j} as Neighbour to {c.X} {c.Y}");
                             list.Add(cells[c.X + i, c.Y + j]);
                         }
                     }
@@ -60,11 +61,67 @@ namespace BitmapMaze
             return list;
         }
         
-        public void GenerateMaze(Bitmap bmp)
+        public void GenerateMaze()
         {
-            cells[0, 0].RemoveWallToCell(cells[0, 1]);
-            cells[5, 5].RemoveWallToCell(cells[4, 5]);
-            cells[5, 5].RemoveWallToCell(cells[5, 6]);
+            var stack = new Stack<Cell>();
+            var unVisited = new List<Cell>();
+            var startCell = cells[0, 0];
+            var currCell = startCell;
+            currCell.SetVisited();
+            Cell neigbourCell;
+
+            for (int i = 0; i < YSize; i++)
+            {
+                for (int j = 0; j < XSize; j++)
+                {
+                    unVisited.Add(cells[j, i]);
+                    Console.WriteLine($"Unvisited Count = {unVisited.Count}");
+                }
+            }
+
+            while (unVisited.Count > 0)
+            {
+                Console.WriteLine($"Unvisited Count = {unVisited.Count}");
+                Console.WriteLine($"Stack Count = {stack.Count}");
+
+                var neigbourList = GetNeighbours(currCell);
+
+                if (neigbourList.Count>0)
+                {
+                    var r = new Random();
+                    neigbourCell = neigbourList[r.Next(0, neigbourList.Count)];
+
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine($"{currCell.X} {currCell.Y} Neigbour list count is {neigbourList.Count} Choosen Cell: {neigbourCell.X} {neigbourCell.Y}");
+                    Console.ForegroundColor = ConsoleColor.Gray;
+
+                    unVisited.Remove(currCell);
+                    currCell.RemoveWallToCell(neigbourCell);
+
+                    Console.WriteLine($"Pushed in Stack {currCell.X} {currCell.Y}");
+                    stack.Push(currCell);
+                    
+                    currCell = neigbourCell;
+                    currCell.SetVisited();
+                }
+                else if (stack.Count > 0)
+                {
+                    currCell = stack.Pop();
+                    Console.WriteLine($"Poped from Stack {currCell.X} {currCell.Y}");
+                }
+                else
+                {
+                    var r = new Random();
+                    currCell = unVisited[r.Next(0, unVisited.Count)];
+                    currCell.IsVisited = true;
+                    unVisited.Remove(currCell);
+                    Console.WriteLine($"Random Choosen cell: {currCell.X} {currCell.Y}");
+                }
+            }
+
+
+            
+            
             // var startCell = cells[0, 0];
             // var g = Graphics.FromImage(bmp);
             // var b = new SolidBrush(Color.Green);
@@ -75,7 +132,6 @@ namespace BitmapMaze
              {
                  g.FillRectangle(b, c.X * c.Size, c.Y * c.Size, c.Size, c.Size);
              }*/
-
         }
     }
 }
