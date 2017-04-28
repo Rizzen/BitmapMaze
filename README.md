@@ -1,2 +1,2 @@
 # BitmapMaze
-Generate maze and draw it to BMP picture.
+Generate maze with Depth-first search based algorhytm and draw it to BMP picture.
