@@ -100,7 +100,7 @@ namespace BitmapMaze
                 else
                 {
                     currCell = unVisited[r.Next(unVisited.Count)];
-                    currCell.IsVisited = true;
+                    currCell.SetVisited();
                     unVisited.Remove(currCell);
                     Console.WriteLine($"Random Choosen cell: {currCell.X} {currCell.Y}");
                 }
