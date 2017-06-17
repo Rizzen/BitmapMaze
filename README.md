@@ -14,5 +14,5 @@ static void Main(string[] args)
     maze.GenerateMaze();
     maze.DrawMaze(bmp);
     bmp.Save($"bmp{DateTimeOffset.Now.ToUnixTimeSeconds()}.bmp");
-    }
+}
 ```
