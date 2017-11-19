@@ -1,5 +1,5 @@
 # BitmapMaze
-Generate maze with Depth-first search based algorhytm and draw it to BMP picture.
+Generate maze with Depth-first search based algorithm and draw it to BMP picture.
 ## Demo
 ``` C#
 static void Main(string[] args)
